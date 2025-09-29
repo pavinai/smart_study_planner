@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Study Planner</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>📚 Smart Study Planner</h1>
+    <p class="subtitle">Create goals · Track tasks · Visual timeline · Reminders</p>
+    <div style="margin-top:12px;">
+      <button onclick="window.location.href='insights.html'">📊 View Insights</button>
+      <button onclick="window.location.href='extra.html'">🎯 Focus Mode</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="left-panel">
+      <form id="task-form" class="card">
+        <h2>New Task</h2>
+        <label>Title<input id="title" required maxlength="80"/></label>
+        <label>Description<textarea id="description" rows="2"></textarea></label>
+
+        <div class="row">
+          <label>Due date<input id="dueDate" type="date"/></label>
+          <label>Time<input id="dueTime" type="time"/></label>
+        </div>
+
+        <div class="row">
+          <label>Subject<input id="subject" placeholder="e.g. Maths"/></label>
+          <label>Priority
+            <select id="priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="row">
+          <label>Estimated (mins)<input id="estimate" type="number" min="1"/></label>
+          <label>Repeat
+            <select id="repeat">
+              <option value="none">None</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button id="saveTask" type="submit">Save Task</button>
+          <button id="clearForm" type="button">Clear</button>
+        </div>
+      </form>
+
+      <div class="card filters">
+        <h3>Filters</h3>
+        <input id="search" placeholder="Search tasks..." />
+        <div class="small-row">
+          <select id="filterSubject"><option value="all">All subjects</option></select>
+          <select id="filterPriority">
+            <option value="all">All priorities</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <div class="small-row">
+          <button id="clearCompleted">Clear completed</button>
+          <button id="exportJson">Export JSON</button>
+        </div>
+      </div>
+      <div class="card timeline">
+        <h2>Timeline</h2>
+        <div id="timelineContainer">No tasks yet — add your first task.</div>
+      </div>
+
+      <div class="card tasks">
+        <h2>Tasks</h2>
+        <ul id="tasksList" class="task-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© Smart Study Planner</footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

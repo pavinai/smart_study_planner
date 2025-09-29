@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Study Insights</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>📊 Study Insights</h1>
+    <p class="subtitle">Your progress at a glance</p>
+    <div style="margin-top:12px;">
+      <button onclick="window.location.href='index.html'">⬅ Back to Planner</button>
+      <button onclick="window.location.href='extra.html'">🎯 Focus Mode</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Summary</h2>
+      <div id="summaryStats">Loading...</div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h2>All Tasks</h2>
+      <ul id="insightsTasks" class="task-list"></ul>
+    </div>
+  </main>
+
+  <footer class="footer">© Smart Study Planner</footer>
+  <script src="js/app.js"></script>
+  <script>
+    // ask app.js to render insights area after it loads
+    document.addEventListener('DOMContentLoaded', ()=>{
+      if(window.renderInsights) window.renderInsights()
+    })
+  </script>
+</body>
+</html>
